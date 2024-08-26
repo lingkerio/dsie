@@ -7,6 +7,12 @@ let process_operation tree (operation, value) =
     let _ = Bst.member value tree in
     tree
   | "delete" -> Bst.delete value tree
+  | "findmin" -> 
+    let _ = Bst.min_bst tree in
+    tree
+  | "findmax" ->
+    let _ = Bst.max_bst tree in
+    tree
   | _ -> tree
 
 let read_csv_file filename =

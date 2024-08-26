@@ -1,5 +1,8 @@
 import time
+import sys
 import Bst
+
+sys.setrecursionlimit(3000)
 
 def process_operation(bst, operation, value):
     if operation == "insert":
@@ -10,6 +13,16 @@ def process_operation(bst, operation, value):
         # print(f"Search {value}: {'Found' if found else 'Not Found'}")
     elif operation == "delete":
         bst.delete(value)
+    elif operation == "findmin":
+        min_value = bst.find_min()
+        # You can print the result or handle it accordingly
+        # print(f"Minimum value: {min_value}")
+    elif operation == "findmax":
+        max_value = bst.find_max()
+        # You can print the result or handle it accordingly
+        # print(f"Maximum value: {max_value}")
+    else:
+        print(f"Invalid operation: {operation}")
 
 def load_operations(filename):
     operations = []
