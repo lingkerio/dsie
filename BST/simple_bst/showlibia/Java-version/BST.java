@@ -94,10 +94,10 @@ public class BST {
         }
 
         int compare = node.compareTo(data);
-        if (compare < 0 ) {
-            insert(node.left, data);
+        if (compare < 0) {
+            node.right = insert(node.right, data);
         } else if (compare > 0) {
-            insert(node.right, data);
+            node.left = insert(node.left, data);
         }
 
         return node;
@@ -113,16 +113,16 @@ public class BST {
         }
 
         int compare = node.compareTo(data);
-        if (compare < 0 ) {
-            return remove(node.left, data);
+        if (compare < 0) {
+            node.right = remove(node.right, data);
         } else if (compare > 0) {
-            return remove(node.right, data);
+            node.left = remove(node.left, data);
         } else {
             if (node.left != null && node.right != null){
                 node.data = findMin(node.right).data;
                 node.right = remove(node.right, node.data);
             } else {
-                node = (node.left != null) ? node.left : node.right;
+                node = (node.left != null) ? node.right : node.left;
             }
 
         }

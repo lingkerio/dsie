@@ -17,7 +17,7 @@ class Operation {
 public class Main {
 
     public static void main(String[] args) {
-        String filename = "../../../../../../benchmark/benchmark_operations.csv";
+        String filename = "../../../benchmark/benchmark_operations.csv";
 
         List<Operation> operations = new ArrayList<>();
         int count = loadOperations(filename, operations);
@@ -75,6 +75,12 @@ public class Main {
                 break;
             case "delete":
                 bst.remove(value);
+                break;
+            case "findmin":
+                bst.findMin();
+                break;
+            case "findmax":
+                bst.findMax();
                 break;
             default:
                 System.err.printf("Unknown operation: %s%n", operation);

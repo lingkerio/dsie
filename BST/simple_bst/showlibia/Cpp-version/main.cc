@@ -40,14 +40,19 @@ int load_operations(std::string_view filename, vector<Operation>& operations)
 
 void process_operation(BST& bst, const string& operation, int value)
 {
-    if (operation == "insert") {
-        bst.insert(value);
-    } else if (operation == "search") {
-        bool found = bst.search(value);
-        // cout << "Search " << value << ": " << (found ? "Found" : "Not Found") << endl;
-    } else if (operation == "delete") {
-        bst.remove(value);
-    }
+  if (operation == "insert") {
+      bst.insert(value);
+  } else if (operation == "search") {
+      bool found = bst.search(value);
+      // cout << "Search " << value << ": " << (found ? "Found" : "NotFound") << endl;
+  } else if (operation == "delete") {
+      bst.remove(value);
+  } else if (operation == "findmin") {
+      bst.findMin();
+  } else if (operation == "findmax") {
+      bst.findMax();
+  }
+
 }
 
 double time_execution(BST& bst, const vector<Operation>& operations)
