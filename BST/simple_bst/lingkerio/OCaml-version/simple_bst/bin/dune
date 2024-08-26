@@ -1,0 +1,5 @@
+(executable
+ (public_name simple_bst)
+ (name main)
+ (modules main bst)
+ (libraries simple_bst unix))
