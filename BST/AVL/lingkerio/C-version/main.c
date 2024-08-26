@@ -52,6 +52,14 @@ AVLNode* process_operation(AVLNode* root, const char* operation, int value) {
         // printf("Search %d: %s\n", value, found ? "Found" : "Not Found");
     } else if (strcmp(operation, "delete") == 0) {
         return delete(root, value);
+    } else if (strcmp(operation, "findmin") == 0) {
+        AVLNode* min_node = find_min(root);
+        // You can print the result or handle it accordingly
+        // printf("Minimum value: %d\n", min_node->value);
+    } else if (strcmp(operation, "findmax") == 0) {
+        AVLNode* max_node = find_max(root);
+        // You can print the result or handle it accordingly
+        // printf("Maximum value: %d\n", max_node->value);
     }
     return root;
 }
