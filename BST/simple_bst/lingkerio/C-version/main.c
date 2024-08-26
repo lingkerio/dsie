@@ -64,7 +64,6 @@ double time_execution(Operation* operations, int count) {
     for (int i = 0; i < count; i++) {
         root = process_operation(root, operations[i].operation, operations[i].value);
     }
-    printf("%d\n", count);
 
     clock_t end = clock();
     free_bst(root);
