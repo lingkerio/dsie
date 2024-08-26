@@ -59,5 +59,5 @@ The purpose of this repository is to:
 - 将 `{data structure name}`、`{sub data structure name}`、`{author}` 和 `{programming language-version}` 替换为与您的项目相关的实际名称和信息。
 - 确保每个数据结构和子数据结构都按照目录结构组织，以便于清晰和便捷地导航。
 - 添加新的数据结构或编程语言时，请遵循既定的目录命名规则。
-- 性能测试（benchmark）的结果应放在每个数据结构的 `benchmark` 目录下。
+- 性能测试（benchmark）的数据文件应放在每个数据结构的 `benchmark` 目录下。
 - 请务必在相关目录中的 README 文件中记录任何特定的构建说明或依赖项。
