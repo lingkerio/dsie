@@ -115,7 +115,7 @@ bool BST::search(const Node& node, int data) const
         return search(node->left, data);
     }
     if (data > node->data) {
-        return search(node, data);
+        return search(node->right, data);
     }
 
     return true;
