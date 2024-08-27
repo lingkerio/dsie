@@ -1,12 +1,18 @@
 import random
 import csv
+import argparse
+
+# 解析命令行参数
+parser = argparse.ArgumentParser(description='生成基准操作')
+parser.add_argument('--insert_size', type=int, required=True, help='插入操作的数量')
+args = parser.parse_args()
 
 random.seed(42)
 
-insert_size = 10000
+insert_size = args.insert_size
 
 # 首先生成全部的insert操作
-insert_operations = [('insert', random.randint(0, 10000)) for _ in range(insert_size)]
+insert_operations = [('insert', random.randint(0, 10*insert_size)) for _ in range(insert_size)]
 
 # 随机选择其中三分之一数据作为有序插入操作
 sorted_insert_size = insert_size // 3
@@ -15,6 +21,7 @@ sorted_insert_operations.sort(key=lambda x: x[1])
 
 # 从剩余数据中随机选择三分之一作为逆序插入操作
 remaining_operations = [op for op in insert_operations if op not in sorted_insert_operations]
+print(len(remaining_operations))
 reverse_insert_size = insert_size // 3
 reverse_insert_operations = random.sample(remaining_operations, reverse_insert_size)
 reverse_insert_operations.sort(key=lambda x: x[1], reverse=True)
