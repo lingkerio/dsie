@@ -13,12 +13,13 @@ using Node = std::unique_ptr<AVLNode>;
 class AVLTree {
 private:
   Node root_;
-  int height(const Node &node) const;
+  int height(const Node &node);
   void updateHeight(Node &node);
-  int balanceFactor(const Node &node) const;
+  int balanceFactor(const Node &node);
 
-  void rightRotate(Node &node);
-  void leftRotate(Node &node);
+
+  void rightRotate(Node &node) noexcept;
+  void leftRotate(Node &node) noexcept;
   void reBalance(Node &node);
 
   void insert(Node &node, int data);
@@ -27,12 +28,13 @@ private:
   AVLNode *findMin(const Node &node) const;
   AVLNode *findMax(const Node &node) const;
 
+
 public:
   AVLTree() = default;
   ~AVLTree() = default;
-  
-  AVLNode *findMin() const;
-  AVLNode *findMax() const;
+
+  AVLNode * findMin() const;
+  AVLNode * findMax() const;
   void insert(int data);
   void remove(int data);
   bool search(int data) const;
