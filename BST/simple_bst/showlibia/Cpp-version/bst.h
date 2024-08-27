@@ -7,11 +7,7 @@ struct BSTNode{
     std::unique_ptr<BSTNode> left;
     std::unique_ptr<BSTNode> right;
 
-    BSTNode(int val)
-        : data(val)
-        , left(nullptr)
-        , right(nullptr)
-    {}
+    BSTNode(int val) : data(val), left(nullptr), right(nullptr) {}
 };
 
 using Node = std::unique_ptr<BSTNode>;
