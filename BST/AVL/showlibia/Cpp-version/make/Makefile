@@ -28,4 +28,3 @@ debug_correct:
 
 test:correct
 	$(cd_to_root) && cp ../../../correctness/correct.sh ./ && sh correct.sh && rm correct.sh
-	make clean
