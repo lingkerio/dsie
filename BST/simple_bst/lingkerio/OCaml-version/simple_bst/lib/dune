@@ -1,2 +1,3 @@
 (library
- (name simple_bst))
+ (name bst)
+ (modules bst))

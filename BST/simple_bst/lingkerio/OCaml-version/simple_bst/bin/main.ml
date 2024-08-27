@@ -1,5 +1,3 @@
-(* test/test_bst.ml *)
-
 let process_operation tree (operation, value) =
   match operation with
   | "insert" -> Bst.insert value tree
@@ -38,8 +36,6 @@ let read_csv_file filename =
   in
   loop []
 
-
-
 let time_execution f x =
   let start_time = Unix.gettimeofday () in
   let result = f x in
@@ -55,22 +51,3 @@ let () =
   Printf.printf "Total time to execute all operations: %.6f seconds\n" elapsed_time;
   (* Optional: further analyze the final_tree if needed *)
   ()
-(* test_time.ml *)
-
-(* let time_operation f x =
-  let start_time = Unix.gettimeofday () in
-  let result = f x in
-  let end_time = Unix.gettimeofday () in
-  let elapsed_time = end_time -. start_time in
-  (result, elapsed_time)
-
-let dummy_operation n =
-  let rec loop i =
-    if i = 0 then ()
-    else loop (i - 1)
-  in
-  loop n
-
-let () =
-  let (_, elapsed_time) = time_operation dummy_operation 1_0_000 in
-  Printf.printf "Time taken to perform dummy operation: %.6f seconds\n" elapsed_time *)

@@ -1,5 +1,11 @@
 (executable
  (public_name simple_bst)
  (name main)
- (modules main bst)
- (libraries simple_bst unix))
+ (modules main)
+ (libraries bst unix))
+
+(executable
+ (public_name correct_bst)
+ (name correct)
+ (modules correct)
+ (libraries bst unix))
