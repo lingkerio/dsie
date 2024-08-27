@@ -5,51 +5,68 @@
 #include"bst.h"
 
 using namespace std;
-int main(){
+
+int main() {
     std::ifstream file("../../../../benchmark/benchmark_operations.csv");
+    std::ofstream outfile("correctness.csv");
     std::string line;
     BST bst;
-    if(!file.is_open()){
-        std::cerr << "error can't open file" << std::endl;
+
+    if (!file.is_open()) {
+        std::cerr << "Error: can't open input file" << std::endl;
         return 1;
     }
     else {
         std::cout << "File opened successfully." << std::endl;
     }
-    while(getline(file,line)){
+
+    while (getline(file, line)) {
         std::istringstream ss(line);
         std::string operation;
         std::string value_str;
         int val = 0;
+
         if (getline(ss, operation, ',') && getline(ss, value_str)) {
             std::istringstream(value_str) >> val;
         }
-        if(operation == "insert"){
+
+        if (operation == "insert") {
             bst.insert(val);
+            outfile << "insert," << val << "\n";
         }
-        else if(operation == "search"){
+        else if (operation == "search") {
             bool found = bst.find(val);
-            printf(found ? "true\n":"flase\n");
+            outfile << "search," << val << "," << (found ? "true" : "false") << "\n";
         }
-        else if(operation == "findmax"){
-            try{
+        else if (operation == "findmax") {
+            try {
                 int max = bst.findmax();
-                printf("max: %d\n",max);
+                outfile << "findmax," << max << "\n";
             }
-            catch(std::runtime_error& e){
-                std::cerr << "Error:" << e.what() << std::endl;
+            catch (std::runtime_error& e) {
+                outfile << "findmax,null\n";
             }
         }
-        else if(operation == "findmin"){
-            try{
+        else if (operation == "findmin") {
+            try {
                 int min = bst.findmin();
-                printf("min: %d\n",min);
+                outfile << "findmin," << min << "\n";
             }
-            catch(std::runtime_error& e){
-                std::cerr << "Error:" << e.what() << std::endl;
+            catch (std::runtime_error& e) {
+                outfile << "findmin,null\n";
+            }
+        }
+        else if (operation == "delete") {
+            bool deleted = bst.remove(val); 
+            if (deleted) {
+                outfile << "delete," << val << "\n";
+            } else {
+                outfile << "delete," << val << ",null\n";
             }
         }
     }
+
     file.close();
+    outfile.close();
     return 0;
 }
