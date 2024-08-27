@@ -21,11 +21,15 @@ let process_operation tree (operation, value) =
      | None -> log_to_file (Printf.sprintf "delete,%d,null" value));
     new_tree
   | "findmin" ->
-    log_to_file (Printf.sprintf "findmin,%d" (Bst.min_bst tree));
-    tree
+      (match Bst.min_bst tree with
+      | Some min_val -> log_to_file (Printf.sprintf "findmin,%d" min_val)
+      | None -> log_to_file "findmin,null");
+      tree
   | "findmax" ->
-    log_to_file (Printf.sprintf "findmax,%d" (Bst.max_bst tree));
-    tree
+      (match Bst.max_bst tree with
+      | Some max_val -> log_to_file (Printf.sprintf "findmax,%d" max_val)
+      | None -> log_to_file "findmax,null");
+      tree
   | _ ->
     Printf.eprintf "Warning: Unknown operation: %s\n" operation;
     tree

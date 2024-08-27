@@ -18,19 +18,19 @@ bool AVLTree::search(int data) const
     return search(root_, data);
 }
 
-AVLNode *AVLTree::findMin() const
+AVLNode * AVLTree::findMin() const
 {
     return findMin(root_);
 }
 
-AVLNode *AVLTree::findMax() const
+AVLNode * AVLTree::findMax() const
 {
     return findMax(root_);
 }
 
 // private function
 
-int inline AVLTree::height(const Node&node) const
+int inline AVLTree::height(const Node &node) 
 {
     return node ? node->height:-1;
 }
@@ -40,12 +40,12 @@ void inline AVLTree::updateHeight(Node &node)
     node->height = std::max(height(node->left), height(node->right)) + 1;
 }
 
-int inline AVLTree::balanceFactor(const Node &node) const
+int inline AVLTree::balanceFactor(const Node &node) 
 {
     return node ? height(node->left) - height(node->right):0;
 }
 
-void AVLTree::rightRotate(Node &node)
+void AVLTree::rightRotate(Node &node) noexcept
 {
     Node child = std::move(node->left);
     node->left = std::move(child->right);
@@ -55,7 +55,7 @@ void AVLTree::rightRotate(Node &node)
     node = std::move(child);
 }
 
-void AVLTree::leftRotate(Node &node)
+void AVLTree::leftRotate(Node &node) noexcept
 {
     Node child = std::move(node->right);
     node->right = std::move(child->left);
@@ -92,7 +92,7 @@ void AVLTree::reBalance(Node &node)
     }
 }
 
-AVLNode *AVLTree::findMin(const Node &node) const
+AVLNode * AVLTree::findMin(const Node &node) const
 {
     if (node == nullptr)
     {
@@ -106,7 +106,7 @@ AVLNode *AVLTree::findMin(const Node &node) const
     return cur;
 }
 
-AVLNode *AVLTree::findMax(const Node &node) const
+AVLNode * AVLTree::findMax(const Node &node) const
 {
     if (node == nullptr)
     {
@@ -148,7 +148,7 @@ void AVLTree::remove(Node &node, int data)
         if (node->left == nullptr || node->right == nullptr) {
             node = std::move(node->left ? node->left : node->right);
         } else {
-            AVLNode *minNode = findMin(node->right);
+            auto minNode = findMin(node->right);
             node->data = minNode->data;
             remove(node->right, node->data);
         }

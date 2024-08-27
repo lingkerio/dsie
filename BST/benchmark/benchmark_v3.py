@@ -21,7 +21,6 @@ sorted_insert_operations.sort(key=lambda x: x[1])
 
 # 从剩余数据中随机选择三分之一作为逆序插入操作
 remaining_operations = [op for op in insert_operations if op not in sorted_insert_operations]
-print(len(remaining_operations))
 reverse_insert_size = insert_size // 3
 reverse_insert_operations = random.sample(remaining_operations, reverse_insert_size)
 reverse_insert_operations.sort(key=lambda x: x[1], reverse=True)

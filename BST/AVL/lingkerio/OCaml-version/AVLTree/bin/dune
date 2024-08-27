@@ -1,0 +1,11 @@
+(executable
+ (public_name AVLTree)
+ (name main)
+ (modules main)
+ (libraries avl unix))
+
+(executable
+ (public_name correct_avl)
+ (name correct)
+ (modules correct)
+ (libraries avl unix))

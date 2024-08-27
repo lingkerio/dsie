@@ -50,6 +50,10 @@ bool search(BSTNode* root, int value) {
 
 // Function to find the minimum value in the BST
 BSTNode* find_min(BSTNode* root) {
+    if (root == NULL) {
+        return NULL;
+    }
+
     while (root && root->left != NULL) {
         root = root->left;
     }
@@ -58,6 +62,10 @@ BSTNode* find_min(BSTNode* root) {
 
 // Function to find the maximum value in the BST
 BSTNode* find_max(BSTNode* root) {
+    if (root == NULL) {
+        return NULL;
+    }
+    
     while (root && root->right != NULL) {
         root = root->right;
     }

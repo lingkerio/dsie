@@ -44,6 +44,10 @@ class BST:
 
     def _find_min(self, node):
         current = node
+
+        if current is None:
+            return current
+            
         while current.left is not None:
             current = current.left
         return current
@@ -53,6 +57,10 @@ class BST:
 
     def _find_max(self, node):
         current = node
+
+        if current is None:
+            return current
+
         while current.right is not None:
             current = current.right
         return current
