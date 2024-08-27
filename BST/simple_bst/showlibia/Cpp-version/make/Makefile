@@ -13,7 +13,7 @@ run: build
 	$(cd_to_root) && ./build/bst
 
 clean: 
-	$(cd_to_root) && rm -rf build && rm -f bst.o && rm -f correct
+	$(cd_to_root) && rm -rf build && rm -f bst.o && rm -f correct && rm -f correct.csv
 
 debug: 
 	$(cd_to_root) && cmake -B build -S . -DCMAKE_BUILD_TYPE=Debug
