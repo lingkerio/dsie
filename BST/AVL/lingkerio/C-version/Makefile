@@ -1,9 +1,12 @@
 # Compiler and flags
 CC = gcc
-CFLAGS = -Wall -O2
+CFLAGS = -Wall -O3
+
+# Correctness file
+CORRECTNESS_FILE = correctness.csv
 
 # Target executable names
-TARGET_MAIN = bst_main_test
+TARGET_MAIN = avl_main_test
 TARGET_CORRECT = bst_correct_test
 
 # Source files
@@ -34,7 +37,7 @@ $(TARGET_CORRECT): $(OBJS_CORRECT)
 
 # Rule to clean the build directory
 clean:
-	rm -f $(OBJS_MAIN) $(OBJS_CORRECT) $(TARGET_MAIN) $(TARGET_CORRECT)
+	rm -f $(OBJS_MAIN) $(OBJS_CORRECT) $(TARGET_MAIN) $(TARGET_CORRECT) $(CORRECTNESS_FILE)
 
 # Rule to run the main executable
 run_main: $(TARGET_MAIN)

@@ -84,12 +84,18 @@ AVLNode* insert(AVLNode* node, int value) {
 }
 
 AVLNode* find_min(AVLNode* node) {
+    if (node == NULL)
+        return NULL;
+
     while (node->left != NULL)
         node = node->left;
     return node;
 }
 
 AVLNode* find_max(AVLNode* node) {
+    if (node == NULL)
+        return NULL;
+    
     while (node->right != NULL)
         node = node->right;
     return node;

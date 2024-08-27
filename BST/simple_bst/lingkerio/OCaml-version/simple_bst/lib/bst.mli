@@ -13,10 +13,10 @@ val insert : 'a -> 'a bst -> 'a bst
 val member : 'a -> 'a bst -> bool
 
 (* Function to find the minimum value in the BST *)
-val min_bst : 'a bst -> 'a
+val min_bst : 'a bst -> 'a option
 
 (* Function to find the maximum value in the BST *)
-val max_bst : 'a bst -> 'a
+val max_bst : 'a bst -> 'a option
 
 (* Function to delete a value from the BST *)
 val delete : 'a -> 'a bst -> 'a bst

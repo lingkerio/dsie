@@ -26,14 +26,14 @@ let rec member x = function
 
 (* Find the minimum value in the BST *)
 let rec min_bst = function
-  | Empty -> failwith "Tree is empty"
-  | Node (x, Empty, _) -> x
+  | Empty -> None
+  | Node (x, Empty, _) -> Some x
   | Node (_, left, _) -> min_bst left
 
 (* Find the maximum value in the BST *)
 let rec max_bst = function
-  | Empty -> failwith "Tree is empty"
-  | Node (x, _, Empty) -> x
+  | Empty -> None
+  | Node (x, _, Empty) -> Some x
   | Node (_, _, right) -> max_bst right
 
 (* Delete a value from the BST *)
@@ -47,6 +47,6 @@ let rec delete x = function
       | Empty, _ -> right
       | _, Empty -> left
       | _, _ ->
-        let min_right = min_bst right in
-        Node (min_right, left, delete min_right right)
-
+        (match min_bst right with
+        | Some min_right -> Node (min_right, left, delete min_right right)
+        | None -> failwith "Unexpected None in delete")
