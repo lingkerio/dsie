@@ -1,1 +1,0 @@
-/usr/bin/c++ CMakeFiles/wisdomgo.dir/src/main.cpp.o CMakeFiles/wisdomgo.dir/src/bst.cpp.o -o wisdomgo 

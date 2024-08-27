@@ -1,3 +1,0 @@
-/home/wisdomgo/dsie/BST/simple_bst/wisdomgo/cpp-version/build/CMakeFiles/wisdomgo.dir
-/home/wisdomgo/dsie/BST/simple_bst/wisdomgo/cpp-version/build/CMakeFiles/edit_cache.dir
-/home/wisdomgo/dsie/BST/simple_bst/wisdomgo/cpp-version/build/CMakeFiles/rebuild_cache.dir
