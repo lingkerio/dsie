@@ -89,7 +89,7 @@ int main() {
     }
 
     double elapsed_time = time_execution(operations, count);
-    printf("Total time to execute all AVL operations (excluding I/O): %.6f seconds\n", elapsed_time);
+    printf("Total time to execute all operations: %.6f seconds\n", elapsed_time);
 
     free(operations);
     return 0;

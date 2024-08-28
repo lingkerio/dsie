@@ -47,4 +47,4 @@ if __name__ == "__main__":
     filename = "../../../benchmark/benchmark_operations.csv"
     operations = load_operations(filename)
     elapsed_time = time_execution(operations)
-    print(f"Total time to execute all BST operations: {elapsed_time:.6f} seconds")
+    print(f"Total time to execute all operations: {elapsed_time:.6f} seconds")
