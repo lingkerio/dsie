@@ -13,7 +13,7 @@ run: build
 	$(cd_to_root) && ./build/avl
 
 clean: 
-	$(cd_to_root) && rm -rf build && rm -f avl.o && rm -f correct && rm -f correct.csv
+	$(cd_to_root) && rm -rf build && rm -f avl.o && rm -f correct && rm -f correctness.csv
 
 debug: 
 	$(cd_to_root) && cmake -B build -S . -DCMAKE_BUILD_TYPE=Debug
