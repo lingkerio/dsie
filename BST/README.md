@@ -35,7 +35,7 @@ To verify the correctness of your program, please provide an executable file. Af
 
 This log data should be saved in a file named `correctness.csv`.
 
-After completing these steps, navigate to the `correctness` folder within the directory containing this file, and run the script inside to perform the correctness verification.
+After completing the above steps, navigate to the directory containing this file and run the script in the `correctness` folder to perform the correctness verification.
 
 We recommend referring to the logic in the existing code for these parts.
 
@@ -91,7 +91,7 @@ search,320297
 
 这些日志数据应保存为 `correctness.csv` 文件。
 
-完成上述步骤后，在包含该文件的目录下，进入 `correctness` 文件夹并运行其中的脚本，以进行正确性验证。
+完成上述步骤后，在包含该文件的目录下，运行 `correctness` 文件夹中的脚本，以进行正确性验证。
 
 我们推荐参考已有代码的逻辑来实现这些部分。
 
