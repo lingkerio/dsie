@@ -1,0 +1,11 @@
+(executable
+ (public_name SplayTree)
+ (name main)
+ (modules main)
+ (libraries splay unix))
+
+(executable
+ (name correct)
+ (modules correct)
+ (public_name correct_splay)
+ (libraries splay unix))
