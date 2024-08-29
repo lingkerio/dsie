@@ -5,10 +5,10 @@
 
 // Define the structure for an AVL tree node
 typedef struct AVLNode {
+    int height;
     int value;
     struct AVLNode *left;
     struct AVLNode *right;
-    int height;
 } AVLNode;
 
 // Function to create a new AVL node

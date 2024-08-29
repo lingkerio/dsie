@@ -7,7 +7,7 @@ CORRECTNESS_FILE = correctness.csv
 
 # Target executable names
 TARGET_MAIN = avl_main_test
-TARGET_CORRECT = bst_correct_test
+TARGET_CORRECT = avl_correct_test
 
 # Source files
 SRCS_MAIN = main.c AVL.c
