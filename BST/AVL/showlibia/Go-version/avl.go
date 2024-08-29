@@ -9,13 +9,14 @@ type AVLNode struct {
 
 func Height(node *AVLNode) int {
 	if node == nil {
-		return 0
+		return -1
 	}
 	return node.Height
 }
 
-func updateHeight(node *AVLNode) {
+func updateHeight(node *AVLNode) int{
 	node.Height = 1 + max(Height(node.Left), Height(node.Right))
+	return node.Height
 }
 
 func balanceFactor(node *AVLNode) int {
@@ -28,7 +29,7 @@ func balanceFactor(node *AVLNode) int {
 func CreateNode(value int) *AVLNode {
 	return &AVLNode{
 		Data:   value,
-		Height: 1,
+		Height: 0,
 		Left:   nil,
 		Right:  nil,
 	}
@@ -39,8 +40,8 @@ func RightRotate(node *AVLNode) *AVLNode {
 	grandChild := child.Right
 	child.Right = node
 	node.Left = grandChild
-	updateHeight(child)
-	updateHeight(node)
+	node.Height = updateHeight(node)
+	child.Height = updateHeight(child)
 	return child
 }
 
@@ -49,8 +50,8 @@ func LeftRotate(node *AVLNode) *AVLNode {
 	grandChild := child.Left
 	child.Left = node
 	node.Right = grandChild
-	updateHeight(child)
-	updateHeight(node)
+	node.Height = updateHeight(node)
+	child.Height = updateHeight(child)
 	return child
 }
 
@@ -59,7 +60,7 @@ func ReBalance(node *AVLNode) *AVLNode {
 		return nil
 	}
 
-	updateHeight(node)
+	node.Height = updateHeight(node)
 
 	balance := balanceFactor(node)
 
@@ -115,6 +116,7 @@ func Insert(node *AVLNode, data int) *AVLNode {
 		node.Right = Insert(node.Right, data)
 	}
 
+	node.Height = updateHeight(node)
 	return ReBalance(node)
 }
 
@@ -158,7 +160,7 @@ func Remove(node *AVLNode, data int) *AVLNode {
 		return node
 	}
 
-	updateHeight(node)
+	node.Height = updateHeight(node)
 
 	return ReBalance(node)
 }
