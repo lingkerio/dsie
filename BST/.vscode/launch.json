@@ -1,0 +1,41 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Debug main.go",
+            "type": "go",
+            "request": "launch",
+            "mode": "auto",
+            "program": "AVL/showlibia/Go-version",
+            "args": [],
+            "env": {},
+            "buildFlags": "",
+            "cwd": "${workspaceFolder}",
+            "trace": "verbose"
+        },
+        {
+            "name": "Run Test Function",
+            "type": "go",
+            "request": "launch",
+            "mode": "auto",
+            "program": "AVL/showlibia/Go-version",
+            "args": ["-test"],
+            "env": {},
+            "buildFlags": "",
+            "cwd": "${workspaceFolder}",
+            "trace": "verbose"
+        },
+        {
+            "name": "Run Correct Function",
+            "type": "go",
+            "request": "launch",
+            "mode": "auto",
+            "program": "AVL/showlibia/Go-version",
+            "args": ["-correct"],
+            "env": {},
+            "buildFlags": "",
+            "cwd": "${workspaceFolder}",
+            "trace": "verbose"
+        }
+    ]
+}
