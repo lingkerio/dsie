@@ -55,17 +55,17 @@ AVLnode* AVL::insert(AVLnode* node, int val) {
         return node;
     node->height = 1 + std::max(height(node->left), height(node->right));
     int balance = getBalance(node);
-    if (balance > 1 && val < node->left->val)
+    if (balance > 1 && val < node->left->val) // LL型，右旋
         return rightRotate(node);
     if (balance < -1 && val > node->right->val)
-        return leftRotate(node);
+        return leftRotate(node);  // RR型，左旋
     if (balance > 1 && val > node->left->val) {
         node->left = leftRotate(node->left);
-        return rightRotate(node);
+        return rightRotate(node);   //LR型，先左旋再右旋
     }
     if (balance < -1 && val < node->right->val) {
         node->right = rightRotate(node->right);
-        return leftRotate(node);
+        return leftRotate(node);  // RL型，先右旋再左旋
     }
 
     return node;
@@ -114,7 +114,7 @@ int AVL::findmax() {
 AVLnode* AVL::remove(AVLnode* node, int val, bool& isDeleted) {
     if (node == nullptr) {
         isDeleted = false;
-        return node;
+        return nullptr;
     }
     if (val < node->val) {
         node->left = remove(node->left, val, isDeleted);
@@ -124,25 +124,39 @@ AVLnode* AVL::remove(AVLnode* node, int val, bool& isDeleted) {
         if (node->left == nullptr || node->right == nullptr) {
             AVLnode* temp = node->left ? node->left : node->right;
             if (temp == nullptr) {
-                temp = node;
+                delete node;
                 node = nullptr;
             } else {
-                *node = *temp;
+                *node = *temp; 
+                delete temp;
             }
-            delete temp;
+            isDeleted = true;
         } else {
             AVLnode* temp = findmin(node->right);
             node->val = temp->val;
             node->right = remove(node->right, temp->val, isDeleted);
         }
-        isDeleted = true;
     }
-
     if (node == nullptr) return node;
     node->height = 1 + std::max(height(node->left), height(node->right));
     int balance = getBalance(node);
+    if (balance > 1 && getBalance(node->left) >= 0) {
+        return rightRotate(node);
+    }
+    if (balance > 1 && getBalance(node->left) < 0) {
+        node->left = leftRotate(node->left);
+        return rightRotate(node);
+    }
+    if (balance < -1 && getBalance(node->right) <= 0) {
+        return leftRotate(node);
+    }
+    if (balance < -1 && getBalance(node->right) > 0) {
+        node->right = rightRotate(node->right);
+        return leftRotate(node);
+    }
     return node;
 }
+
 
 bool AVL::remove(int val) {
     bool isDeleted = false;
